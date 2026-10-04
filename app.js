@@ -97,7 +97,7 @@ function noticeBox(notice) {
 function renderPreview(confirmed, notice) {
   const wrap = document.getElementById('preview');
   if (confirmed.length === 0) {
-    wrap.replaceChildren(el('p', { class: 'muted', text: 'Nothing is shown until an editor confirms a match above.' }));
+    wrap.replaceChildren(el('p', { class: 'empty', text: 'Nothing is shown yet. Press "Confirm match" in step 2 to see the notice a reader would get.' }));
     return;
   }
   wrap.replaceChildren(
@@ -129,11 +129,15 @@ function renderMatches(notice, clinics) {
       }
       const c = r.clinic;
       const stale = isStale(c, notice);
-      const box = el('input', { type: 'checkbox', 'aria-label': `Confirm ${c.name_en}` });
-      if (r.confidence === 'low') box.disabled = true;
-      box.addEventListener('change', () => {
-        if (box.checked) confirmed.set(c.slug, c); else confirmed.delete(c.slug);
+      const box = el('button', { type: 'button', class: 'btn', 'aria-pressed': 'false', text: 'Confirm match' });
+      if (r.confidence === 'low') { box.disabled = true; box.textContent = 'Check address first'; }
+      box.addEventListener('click', () => {
+        const on = box.getAttribute('aria-pressed') !== 'true';
+        box.setAttribute('aria-pressed', String(on));
+        box.textContent = on ? 'Confirmed ✓' : 'Confirm match';
+        if (on) confirmed.set(c.slug, c); else confirmed.delete(c.slug);
         update();
+        if (on) document.getElementById('preview').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
       return el('tr', {}, [
         el('td', { text: `${n.raw} (${n.location})` }),
