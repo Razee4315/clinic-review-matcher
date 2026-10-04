@@ -3,9 +3,71 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Setup check</title>
+<meta name="robots" content="noindex, nofollow">
+<title>Regulator notice check</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<p>Setup check. The page will be built here.</p>
+<main>
+  <header>
+    <h1>Regulator notice check</h1>
+    <p class="lead">A clinic directory is only as trustworthy as its newest information. This prototype takes a regulator notice, finds the clinic pages it is about, and flags the ones that were last reviewed before the notice came out.</p>
+  </header>
+
+  <section>
+    <h2>1. The notice</h2>
+    <div id="notice" class="card">Loading…</div>
+  </section>
+
+  <section>
+    <h2>2. Which pages does it affect?</h2>
+    <p class="muted">The names in a notice are never written the same way as in the directory. Each one is matched on a cleaned name plus the district. An editor has to tick the box before anything is shown to readers.</p>
+    <div class="scroll">
+      <table id="matches">
+        <thead>
+          <tr>
+            <th>Name in the notice</th>
+            <th>Directory page</th>
+            <th>Match</th>
+            <th>Page last reviewed</th>
+            <th>Status</th>
+            <th>Editor confirms</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p id="untouched" class="muted"></p>
+  </section>
+
+  <section>
+    <h2>3. What the reader would see</h2>
+    <div id="preview"></div>
+  </section>
+
+  <section>
+    <h2>Try a name</h2>
+    <p class="muted">Type a clinic name the way a news article or a Korean source might write it, for example <code>DA Plastic Surgery Clinic</code>, <code>뷰성형외과</code> or <code>View Dental</code>.</p>
+    <input id="try-name" type="text" placeholder="Clinic name" autocomplete="off">
+    <p id="try-result" aria-live="polite"></p>
+  </section>
+
+  <section>
+    <h2>How it decides</h2>
+    <ul>
+      <li><strong>Exact match on a cleaned name.</strong> Words like "plastic surgery", "clinic" and 성형외과 are removed, then the rest must be identical. There is no fuzzy matching, because these names are short and a wrong match would put a regulator notice on the wrong clinic.</li>
+      <li><strong>District as a second check.</strong> Name and district agreeing is high confidence. A name match with a different district is blocked until someone checks the address.</li>
+      <li><strong>A person approves every notice.</strong> The tool only prepares the work. Nothing reaches a clinic page automatically.</li>
+      <li><strong>Dates decide the queue.</strong> A page reviewed before the notice is out of date and goes back for review.</li>
+    </ul>
+    <h2>What it does not do</h2>
+    <ul>
+      <li>It does not recalculate ratings or remove reviews. That needs the full review data and a policy decision.</li>
+      <li>It does not fetch notices by itself yet. The notice here was entered by hand from a published news report.</li>
+      <li>Directory details are a small sample read from public clinic pages on 4 October 2026.</li>
+    </ul>
+  </section>
+</main>
+<script src="app.js"></script>
 </body>
 </html>

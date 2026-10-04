@@ -1,0 +1,18 @@
+[
+  {
+    "id": "kftc-2026-07-13",
+    "regulator": "Korea Fair Trade Commission",
+    "date": "2026-07-13",
+    "action": "Corrective order",
+    "reason": "Undisclosed incentivised reviews. Clinic-recruited promotional models received discounts in exchange for favourable posts on review communities and apps.",
+    "period": "2018 to May 2026",
+    "law": "Fair Labeling and Advertising Act",
+    "source_name": "The Korea Times, 13 July 2026",
+    "source_url": "https://www.koreatimes.co.kr/southkorea/society/20260713/gangnam-plastic-surgery-clinics-penalized-over-incentivized-positive-reviews",
+    "named": [
+      { "raw": "View Plastic Surgery Clinic", "location": "Gangnam District" },
+      { "raw": "DA Plastic Surgery Clinic", "location": "Gangnam District" },
+      { "raw": "AB Plastic Surgery Clinic", "location": "Seocho District" }
+    ]
+  }
+]

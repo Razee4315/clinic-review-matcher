@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "da-ps",
+    "url": "https://gangnambeautyguide.com/en/clinics/da-ps/",
+    "name_en": "DA Plastic Surgery",
+    "name_ko": "디에이성형외과",
+    "address": "3F, 125, Teheran-ro, Gangnam-gu, Seoul",
+    "tier": "Gold tier",
+    "rating": 4.7,
+    "last_reviewed": "2026-04-15"
+  },
+  {
+    "slug": "ab-ps",
+    "url": "https://gangnambeautyguide.com/en/clinics/ab-ps/",
+    "name_en": "AB Plastic Surgery",
+    "name_ko": "에이비성형외과",
+    "address": "3F, 17, Seocho-daero 77-gil, Seocho-gu, Seoul",
+    "tier": "Gold tier",
+    "rating": 4.8,
+    "last_reviewed": "2026-04-15"
+  },
+  {
+    "slug": "view-ps",
+    "url": "https://gangnambeautyguide.com/en/clinics/view-ps/",
+    "name_en": "View Plastic Surgery",
+    "name_ko": "뷰성형외과",
+    "address": "107, Bongeunsa-ro, Gangnam-gu, Seoul",
+    "tier": "Gold tier",
+    "rating": 4.8,
+    "last_reviewed": "2026-04-15"
+  },
+  {
+    "slug": "4ever-ps",
+    "url": "https://gangnambeautyguide.com/en/clinics/4ever-ps/",
+    "name_en": "4Ever Plastic Surgery",
+    "name_ko": null,
+    "address": "2F, 157, Dosan-daero, Gangnam-gu, Seoul",
+    "tier": null,
+    "rating": 4.6,
+    "last_reviewed": null
+  },
+  {
+    "slug": "arc-ps",
+    "url": "https://gangnambeautyguide.com/en/clinics/arc-ps/",
+    "name_en": "ARC Plastic Surgery",
+    "name_ko": null,
+    "address": "368, Sapyeong-daero, Seocho-gu, Seoul",
+    "tier": null,
+    "rating": 4.7,
+    "last_reviewed": null
+  },
+  {
+    "slug": "onepeak-ps",
+    "url": "https://gangnambeautyguide.com/en/clinics/onepeak-ps/",
+    "name_en": "Onepeak Plastic Surgery",
+    "name_ko": null,
+    "address": "11F, 557, Gangnam-daero, Seocho-gu, Seoul",
+    "tier": null,
+    "rating": 4.3,
+    "last_reviewed": null
+  },
+  {
+    "slug": "noselab-clinic",
+    "url": "https://gangnambeautyguide.com/en/clinics/noselab-clinic/",
+    "name_en": "Noselab Clinic",
+    "name_ko": null,
+    "address": "3F, 556, Gangnam-daero, Gangnam-gu, Seoul",
+    "tier": null,
+    "rating": 4.5,
+    "last_reviewed": null
+  },
+  {
+    "slug": "note-ps",
+    "url": "https://gangnambeautyguide.com/en/clinics/note-ps/",
+    "name_en": "Note Plastic Surgery",
+    "name_ko": null,
+    "address": "12F~15F, 563, Gangnam-daero, Seocho-gu, Seoul",
+    "tier": null,
+    "rating": 4.7,
+    "last_reviewed": null
+  },
+  {
+    "slug": "thank-you-ps",
+    "url": "https://gangnambeautyguide.com/en/clinics/thank-you-ps/",
+    "name_en": "Thank You Plastic Surgery",
+    "name_ko": null,
+    "address": "5F, 446, Gangnam-daero, Gangnam-gu, Seoul",
+    "tier": null,
+    "rating": 4.7,
+    "last_reviewed": null
+  }
+]
