@@ -11,26 +11,43 @@
 <main>
   <header>
     <h1>Regulator notice check</h1>
-    <p class="lead">A clinic directory is only as trustworthy as its newest information. This prototype takes a regulator notice, finds the clinic pages it is about, and flags the ones that were last reviewed before the notice came out.</p>
+    <p class="lead">When a regulator acts against a clinic, a clinic guide should notice. This small tool checks that.</p>
   </header>
 
+  <section class="steps" aria-label="Summary">
+    <div class="step">
+      <p class="step-label">The problem</p>
+      <p>In July 2026 Korea's Fair Trade Commission ordered three plastic surgery clinics to correct reviews that were paid for with discounts and not disclosed. A guide that gives those clinics a high rating has no way to know.</p>
+    </div>
+    <div class="step">
+      <p class="step-label">What this does</p>
+      <p>It reads the notice, finds the clinic pages it is about, and checks whether each page was last reviewed before or after the notice.</p>
+    </div>
+    <div class="step result">
+      <p class="step-label">The result</p>
+      <p id="summary" class="big">Checking…</p>
+      <p class="muted">Tick a box in step 2 to see what a reader would see.</p>
+    </div>
+  </section>
+
   <section>
-    <h2>1. The notice</h2>
+    <h2><span class="num">1</span> The notice</h2>
+    <p class="muted">This is the regulator's action, taken from a published news report.</p>
     <div id="notice" class="card">Loading…</div>
   </section>
 
   <section>
-    <h2>2. Which pages does it affect?</h2>
-    <p class="muted">The names in a notice are never written the same way as in the directory. Each one is matched on a cleaned name plus the district. An editor has to tick the box before anything is shown to readers.</p>
+    <h2><span class="num">2</span> The clinic pages it affects</h2>
+    <p class="muted">A notice never writes a clinic's name the same way the guide does. Each name is matched on a cleaned name plus the district. Nothing is shown to readers until an editor ticks the last column.</p>
     <div class="scroll">
       <table id="matches">
         <thead>
           <tr>
             <th>Name in the notice</th>
-            <th>Directory page</th>
-            <th>Match</th>
+            <th>Clinic page found</th>
+            <th>How sure</th>
             <th>Page last reviewed</th>
-            <th>Status</th>
+            <th>Result</th>
             <th>Editor confirms</th>
           </tr>
         </thead>
@@ -41,31 +58,36 @@
   </section>
 
   <section>
-    <h2>3. What the reader would see</h2>
+    <h2><span class="num">3</span> What the reader would see</h2>
+    <p class="muted">After an editor confirms, the clinic page gets this notice and goes back into the review queue.</p>
     <div id="preview"></div>
   </section>
 
   <section>
-    <h2>Try a name</h2>
-    <p class="muted">Type a clinic name the way a news article or a Korean source might write it, for example <code>DA Plastic Surgery Clinic</code>, <code>뷰성형외과</code> or <code>View Dental</code>.</p>
-    <input id="try-name" type="text" placeholder="Clinic name" autocomplete="off">
+    <h2>Try it yourself</h2>
+    <p class="muted">Type a clinic name the way a news article or a Korean source might write it. For example <code>DA Plastic Surgery Clinic</code>, <code>뷰성형외과</code> or <code>View Dental</code>.</p>
+    <input id="try-name" type="text" placeholder="Clinic name" autocomplete="off" aria-label="Clinic name to test">
     <p id="try-result" aria-live="polite"></p>
   </section>
 
-  <section>
-    <h2>How it decides</h2>
-    <ul>
-      <li><strong>Exact match on a cleaned name.</strong> Words like "plastic surgery", "clinic" and 성형외과 are removed, then the rest must be identical. There is no fuzzy matching, because these names are short and a wrong match would put a regulator notice on the wrong clinic.</li>
-      <li><strong>District as a second check.</strong> Name and district agreeing is high confidence. A name match with a different district is blocked until someone checks the address.</li>
-      <li><strong>A person approves every notice.</strong> The tool only prepares the work. Nothing reaches a clinic page automatically.</li>
-      <li><strong>Dates decide the queue.</strong> A page reviewed before the notice is out of date and goes back for review.</li>
-    </ul>
-    <h2>What it does not do</h2>
-    <ul>
-      <li>It does not recalculate ratings or remove reviews. That needs the full review data and a policy decision.</li>
-      <li>It does not fetch notices by itself yet. The notice here was entered by hand from a published news report.</li>
-      <li>Directory details are a small sample read from public clinic pages on 4 October 2026.</li>
-    </ul>
+  <section class="two-col">
+    <div>
+      <h2>How it decides</h2>
+      <ul>
+        <li><strong>Exact match on a cleaned name.</strong> Words like "plastic surgery", "clinic" and 성형외과 are removed, then the rest must be identical. No fuzzy matching, because these names are short and a wrong match would put a notice on the wrong clinic.</li>
+        <li><strong>District as a second check.</strong> Name and district agreeing is high confidence. A different district blocks the match until someone checks the address.</li>
+        <li><strong>A person approves every notice.</strong> The tool only prepares the work.</li>
+        <li><strong>Dates decide the queue.</strong> A page reviewed before the notice is out of date.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>What it does not do</h2>
+      <ul>
+        <li>It does not recalculate ratings or remove reviews. That needs the full review data and a policy decision.</li>
+        <li>It does not fetch notices by itself yet. This notice was entered by hand.</li>
+        <li>The clinic details are a small sample read from public clinic pages on 4 October 2026.</li>
+      </ul>
+    </div>
   </section>
 </main>
 <script src="app.js"></script>

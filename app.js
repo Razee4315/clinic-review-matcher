@@ -143,7 +143,10 @@ function renderMatches(notice, clinics) {
         ]),
         el('td', {}, [el('span', { class: `pill ${r.confidence}`, text: r.confidence }), el('div', { class: 'muted', text: r.reason })]),
         el('td', { text: c.last_reviewed ? fmtDate(c.last_reviewed) : 'Unknown' }),
-        el('td', { text: stale === null ? 'Unknown' : stale ? 'Reviewed before the notice. Needs re-review.' : 'Reviewed after the notice.' }),
+        el('td', {}, [
+          el('span', { class: stale ? 'pill low' : 'pill high', text: stale === null ? 'Unknown' : stale ? 'Needs re-review' : 'Up to date' }),
+          el('div', { class: 'muted', text: stale ? 'Reviewed before the notice.' : stale === false ? 'Reviewed after the notice.' : '' }),
+        ]),
         el('td', {}, [box]),
       ]);
     })
@@ -183,7 +186,16 @@ async function main() {
   renderNotice(notice);
   renderMatches(notice, clinics);
   renderUntouched(notice, clinics);
+  renderSummary(notice, clinics);
   wireTryIt(notice, clinics);
+}
+
+function renderSummary(notice, clinics) {
+  const results = notice.named.map((n) => matchClinic(n.raw, n.location, clinics));
+  const matched = results.filter((r) => r.status === 'match');
+  const stale = matched.filter((r) => isStale(r.clinic, notice) === true);
+  document.getElementById('summary').textContent =
+    `${stale.length} of ${clinics.length} clinic pages need a new review.`;
 }
 
 main().catch((err) => {
